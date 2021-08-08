@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Salary Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/style.css">
+<header>
+</header>
+</head>
+
+<body>
+ <div class="login">
+
+	<h1 background="/static/images/header_sal.jpg">Predict Employee Salary</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="POST" autocomplete="on">
+
+        <strong>Satisfaction Level</strong> : <input type="number" name="satisfaction_level" placeholder="0-100" required min="0" max="100"><br><br>
+
+        <!--<strong>BusinessTravel</strong> : <input type="radio" name="last_evaluation" id="Rarely" value="Rarely">Rarely  <input type="radio" name="BusinessTravel" id="Frequently" value="Frequently">  Frequently<input type="radio" name="BusinessTravel" id="No Travel"  value="No Travel">No Travel<br><br>-->
+
+        <strong>Last Evaluation</strong> : <input type="number" name="last_evaluation" placeholder="0-100" required min="0" max="100" size="30"><br><br>
+        
+        <strong>Number of Project</strong> : <input type="number" name="number_project" placeholder="0-20" required min="0" max="100" size="30"><br><br>
+    
+        <strong>Average Montly Hours</strong> : <input type="number" name="average_montly_hours"  required min="100" max="1600" size="30"><br><br>
+
+         <strong>Time Spend in Company(In Years)</strong> : <input type="number" name="time_spend_company"  size="30"><br><br>
+         <strong>Work Accident</strong> : <input type="number" name="Work_accident"  size="30"><br><br>
+         <strong>Left Company</strong> : <input type="radio" name="left" id="Yes" value="0">Yes  <input type="radio" name="left" id="No" value="0">  No<br><br>
+         <strong>Received Promotion in Last 5 Years</strong> : <input type="radio" name="promotion_last_5years" id="Yes" value="0">Yes  <input type="radio" name="promotion_last_5years" id="No" value="0">  No<br><br>
+          <strong>Sales</strong> : <input type="number" name="sales"  size="30"><br><br>
+            <strong>Performance</strong> : <input type="number" name="std_performance"  size="30"><br><br>
+         
+         <strong>Performance Differential</strong> : <input type="number" name="performance_differential"  size="30"><br><br>
+          <strong>Classification</strong> : <input type="number" name="classification"  size="30"><br><br>
+          <strong>Daily hours</strong> : <input type="number" name="daily_hours"  size="30"><br><br>
+         
+         
+
+        <br><button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+     <h1>{{ prediction_text }}</h1>
+
+ </div>
+
+
+</body>
+</html>
